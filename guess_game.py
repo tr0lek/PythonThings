@@ -8,15 +8,15 @@ def luckset():
 
 def levels():
     global lvl
-    print("Wpisz 1 dla poziomu łatwego")
-    print("Wpisz 2 dla poziomu średniego")
-    print("Wpisz 3 dla poziomu trudnego")
-    print("Naciśnij enter aby potwierdzić")
+    print("Type 1 for easy mode")
+    print("Type 2 for medium mode")
+    print("Type 3 for hard mode")
+    print("Press Enter to continue")
     mode = input()
     try:
         test = (int(mode)) + 1
     except:
-        print("Wybierz poprawny tryb!")
+        print("Choose a correct mode!")
         levels()
     mode = int(mode)
     if mode == 1:
@@ -29,33 +29,33 @@ def levels():
         lvl = 1000
         luckset()
     else:
-         print("Wybierz poprawny tryb!")
+         print("Choose a correct mode!")
          levels()  
     
 
 def guessing():
-    print("Podaj numer od 0 do " + str(lvl))
+    print("Guess a number from 1 to " + str(lvl))
     guess = input()
     try:
         test2 = (int(guess)) + 1
     except:
-        print("Podaj liczbe!")
+        print("Enter a nubmer!")
         guessing()
     guess = int(guess)
     if guess == lucky:
         win()
     else:
         if guess > lucky:
-            print("Niżej")
+            print("Less")
             guessing()
         else:
             if guess < lucky:
-                    print("Wyżej")
+                    print("More")
                     guessing()
 
 def win():
-     print("Brawo, zgadłeś numer!")
+     print("Congrats! You won.")
      time.sleep(3)
 
-print("Witaj, w tej grze musisz odgadnąć losowy numer w wybranym przedziale")
+print("Hello, in this game you have to guess the correct number")
 levels() 
